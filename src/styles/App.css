@@ -1,1 +1,36 @@
-
+body{
+    margin: 30px;
+}
+.autoComplete{
+    position: relative;
+    width: 200px;
+    font-size: 20px;
+    /* box-sizing: border-box; */
+}
+.autoComplete input{
+    outline: 1px solid grey;
+    box-sizing: border-box;
+    width: 200px;
+    font-size: 16px;
+    margin-top: 30px;
+    padding: 0px 5px;
+}
+.autoCompleteList{
+    position: absolute;
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 16px;
+    border: 1px solid grey;
+}
+.autoCompleteItem{
+    width: 180px;
+    border: 1px solid grey;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+.autoCompleteItem:hover{
+    cursor: pointer;
+    background-color: rgb(3, 62, 3);
+    color: rgb(255, 221, 0);
+}
