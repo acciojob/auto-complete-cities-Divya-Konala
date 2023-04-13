@@ -5165,6 +5165,11 @@ var cities = ["SGM",
 
 const SearchCities=()=>{
     const [city,setCity]=useState([]);
+    const [selectedCity,setSelectedCity]=useState("");
+    const handleClick=(val)=>{
+        setSelectedCity(val);
+        setCity([])
+    }
     const SearchCities=(val)=>{
         let matchingCities=new Array;
         if(val==""){
@@ -5177,18 +5182,18 @@ const SearchCities=()=>{
 
     return <form className='autoComplete'>
         <label>Search cities of India:</label><br/>
-        <input type='text' onChange={(e)=>SearchCities(e.target.value.toLowerCase())}/>
+        <input type='text' value={selectedCity} onChange={(e)=>{setSelectedCity(e.target.value);SearchCities(e.target.value.toLowerCase());}}/>
         {
             (city.length>0)
-            ?<div className='autoCompleteList'>
+            ?<ul className='autoCompleteList'>
                 {
-                    city.map((c)=>{
-                        return <div className='autoCompleteItem'>
+                    city.map((c,index)=>{
+                        return <li onClick={()=>handleClick(c)} key={index}  className='autoCompleteItem'>
                             {c}
-                        </div>
+                        </li>
                     })
                 }
-            </div>
+            </ul>
             :""
         }
     </form>
